@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/andyCampaign/static/css/main.1052527a.css",
+    "main.js": "/andyCampaign/static/js/main.dbd7a299.js",
+    "static/js/787.d2a1314e.chunk.js": "/andyCampaign/static/js/787.d2a1314e.chunk.js",
+    "static/media/GEvent1.png": "/andyCampaign/static/media/GEvent1.5689115b55be1d27c710.png",
+    "static/media/MainEvent.png": "/andyCampaign/static/media/MainEvent.91e514c9bab69276c939.png",
+    "static/media/GEvent2.png": "/andyCampaign/static/media/GEvent2.09ac2964fc844660911e.png",
+    "static/media/MantouSans-Regular.ttf": "/andyCampaign/static/media/MantouSans-Regular.7d5a628aa53cd85a4679.ttf",
+    "static/media/advocatephoto.svg": "/andyCampaign/static/media/advocatephoto.086b4297de8524b6e68f030b13a298aa.svg",
+    "static/media/avatar_big.png": "/andyCampaign/static/media/avatar_big.5c78fdb9936284f3654c.png",
+    "static/media/event.svg": "/andyCampaign/static/media/event.32b358bc4b00414b979119a000510fc7.svg",
+    "static/media/advocate.svg": "/andyCampaign/static/media/advocate.ddae9e0c99a2dca392793d056bc03438.svg",
+    "static/media/instalogo.svg": "/andyCampaign/static/media/instalogo.2b1030a551a318424051686ff13ae08d.svg",
+    "static/media/logo.svg": "/andyCampaign/static/media/logo.e52a1e39e05d8dce46b4985c59b24e3e.svg",
+    "index.html": "/andyCampaign/index.html",
+    "static/media/ytlogo.svg": "/andyCampaign/static/media/ytlogo.47e258a05db559c459f4c99c10bc2276.svg",
+    "static/media/fblogo.svg": "/andyCampaign/static/media/fblogo.e5cf5f8df84f0c0beb53d821500a8410.svg",
+    "static/media/arrow_forward.svg": "/andyCampaign/static/media/arrow_forward.883a8de8d36993cb94c83e1186a2299d.svg",
+    "main.1052527a.css.map": "/andyCampaign/static/css/main.1052527a.css.map",
+    "main.dbd7a299.js.map": "/andyCampaign/static/js/main.dbd7a299.js.map",
+    "787.d2a1314e.chunk.js.map": "/andyCampaign/static/js/787.d2a1314e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1052527a.css",
+    "static/js/main.dbd7a299.js"
+  ]
+}
