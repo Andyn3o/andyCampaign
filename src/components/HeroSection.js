@@ -237,7 +237,6 @@ const HeroSection = () => {
           <div>喵立翰 Miao Li-Han</div>
         </Name>
       </NameCard>
-      <></>
       <AvatarContainer>
         <Avatar src={avatar_ori} />
         <FloatingSM>

@@ -20,17 +20,13 @@ const EventContainer = styled.div`
   @media 
   ${(props) => props.theme.device.tablet},
   {
-    padding: 0px 32px;
-    margin-top: 64px;
-    margin-bottom: 64px;
+    padding: 64px 32px;
   }
 
   @media 
   ${(props) => props.theme.device.mobile},
   {
-    padding: 0px 16px;
-    margin-top: 64px;
-    margin-bottom: 64px;
+    padding: 64px 16px;
   }
 `;
 
@@ -214,7 +210,7 @@ const LatestEvent = () => {
     <EventContainer>
       <TitleBox>
         <SectionLogo src={EventLogo} />
-        <Title>最新消息</Title>
+        <Title>最新活動</Title>
       </TitleBox>
       <EventBox>
         <MainEvent>

@@ -9,22 +9,7 @@ const Advocate_container = styled.div`
   overflow: hidden;
   display: flex;
   justify-content: center;
-  align-items: center;
-  @media 
-  ${(props) => props.theme.device.desktop},
-  {
-    padding: 0px 300px;
-  }
-  @media 
-  ${(props) => props.theme.device.tablet},
-  {
-    padding: 0px 36px;
-  }
-  @media 
-  ${(props) => props.theme.device.mobile},
-  {
-    padding: 0px 16px;
-  }
+  align-items: center; 
 `; 
 
 const Innerbox = styled.div`
@@ -40,24 +25,21 @@ const Innerbox = styled.div`
     border-radius: 32px;
     flex-direction: row;
     height: 544px;
-    margin-top: 104px;
-    margin-bottom: 104px;
+    margin: 104px auto;
   }
 
   @media 
   ${(props) => props.theme.device.tablet},
   {
     flex-direction: column;
-    margin-top: 64px;
-    margin-bottom: 64px;
+    margin: 64px 36px;
   }
   
   @media 
   ${(props) => props.theme.device.mobile},
   {
     flex-direction: column;
-    margin-top: 64px;
-    margin-bottom: 64px;
+    margin: 64px 16px;
   }
 
 `;

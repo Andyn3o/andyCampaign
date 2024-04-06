@@ -6,11 +6,16 @@ import fbLogoPath from '../assets/fblogo.svg';
 import igLogoPath from '../assets/instalogo.svg';
 import ytLogoPath from '../assets/ytlogo.svg';
 
-const Background = styled.div`
-    color: #FDFCFB;
-`;
+import { profile } from '../config/profile';
+
 const Outerbox = styled.div`
-    background-color: #FDFCFB;
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+    width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: transparent;
     @media
     ${(props) => props.theme.device.tablet},
     ${(props) => props.theme.device.desktop},
@@ -24,64 +29,55 @@ const Outerbox = styled.div`
     }
 `;
 const Innerbox = styled.div`
+    background: rgba(255, 255, 255, 0.90);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-self: stretch;
+    align-items: center;
+    padding: 12px 24px;
+    border-radius: 16px;
+    backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.90);
     @media
     ${(props) => props.theme.device.desktop},
     ${(props) => props.theme.device.tablet},
     {
-        padding: 12px 24px;
-        border-radius: 16px;
-        border: 1px solid;
-        backdrop-filter: blur(12px);
-        background: rgba(255, 255, 255, 0.90);
+
     }
 `;
 
-const Lefty = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-self: start;
-    align-items: center;
-    gap: 8px;
-`;
-const Logo = styled.img`
-    @media
-    ${(props) => props.theme.device.mobile},
-    {
-        width: 34px;
-        height: 28px;
-    }
-    @media
-    ${(props) => props.theme.device.desktop},
-    ${(props) => props.theme.device.tablet},
-    {
-        width: 52px;
-        height: 43px;
-    }
-`;
-const Title = styled.div`
-    color: #DA7D4A;
-    text-align: left;
+const Logo = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  img {
+    width: 52.169px;
+    height: 43px;
+    object-fit: cover;
+  }
+  .logo__title {
+    color: var(--primary, #DA7D4A);
     font-family: Inter;
+    font-size: 24px;
     font-style: normal;
     font-weight: 700;
-    line-height: 150%;
-
-    @media
-    ${(props) => props.theme.device.desktop},
-    ${(props) => props.theme.device.tablet},
-    {
-        font-size: 24px;
+    line-height: 150%; /* 36px */
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+  @media ${props => props.theme.device.tablet} {
+    gap: 4px;
+    img {
+      width: 34px;
+      height: 28px;
     }
-    @media
-    ${(props) => props.theme.device.mobile},
-    {
-        font-size: 20px;
+    .logo__title {
+      font-size: 20px;
     }
+  }
 `;
 
 const SocialLogo = styled.img`
@@ -140,28 +136,26 @@ const MidContent = styled.div`
 
 const NavigationBar = () => {
   return (
-    <Background>
-      <Outerbox>
-        <Innerbox>
-          <Lefty>
-            <Logo src={LogoPath} />
-            <Title>喵立翰 Miao Li-Han</Title>
-          </Lefty>
-          <Middy>
-            <MidContent>候選人主張</MidContent>
-            <MidContent>最新活動</MidContent>
-            <MidContent>政策議題</MidContent>
-            <MidContent>小額捐款</MidContent>
-            <MidContent>民眾服務信箱</MidContent>
-          </Middy>
-          <Righty>
-            <SocialLogo src={fbLogoPath} />
-            <SocialLogo src={igLogoPath} />
-            <SocialLogo src={ytLogoPath} />
-          </Righty>
-        </Innerbox>
-      </Outerbox>
-    </Background>
+    <Outerbox>
+      <Innerbox>
+        <Logo>
+          <img alt="logo" src={LogoPath} />
+          <div className="logo__title">{profile.candidateName}</div>
+        </Logo>
+        <Middy>
+          <MidContent>候選人主張</MidContent>
+          <MidContent>最新活動</MidContent>
+          <MidContent>政策議題</MidContent>
+          <MidContent>小額捐款</MidContent>
+          <MidContent>民眾服務信箱</MidContent>
+        </Middy>
+        <Righty>
+          <SocialLogo src={fbLogoPath} />
+          <SocialLogo src={igLogoPath} />
+          <SocialLogo src={ytLogoPath} />
+        </Righty>
+      </Innerbox>
+    </Outerbox>
   );
 };
 export default NavigationBar;
