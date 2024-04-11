@@ -4,6 +4,11 @@ import styled from 'styled-components';
 import advocate_avatar from '../assets/advocatephoto.svg';
 import advocate_logo from '../assets/advocate.svg';
 
+import { anchorId } from '../config/anchor';
+
+const Section = styled.section`
+`;
+
 const Advocate_container = styled.div`
   background: #F7ECE1;
   overflow: hidden;
@@ -29,7 +34,7 @@ const Innerbox = styled.div`
   }
 
   @media 
-  ${(props) => props.theme.device.tablet},
+  ${props => props.theme.device.tablet},
   {
     flex-direction: column;
     margin: 64px 36px;
@@ -163,24 +168,26 @@ const Context = styled.div`
 `;
 const Advocate = () => {
   return (
-    <Advocate_container>
-      <Innerbox>
-        <TextBox>
-          <TitleBox>
-            <Advocate_logo src={advocate_logo} />
-            <Title>候選人主張</Title>
-          </TitleBox>
-          <SubTitle>
-            我堅信 ! 藉由推動更完善的<span className="highlight">貓咪福利</span>和相關政策，更是間接地投資於<span className="highlight">台灣的未來</span>。
-          </SubTitle>
-          <Context>
-            畢竟，民眾的身心健康與工作熱情是推動經濟的核心動力。透過完善的貓咪福利政策，為台灣的 GDP 經濟帶來巨大效益。<br />
-            因此，我期望能在立法院內推進這些政策，確保每一隻貓咪都能得到他們應有的照顧，同時也為台灣的經濟發展助一臂之力。讓我們一同護航台灣的幸福經濟，從照顧每一隻貓咪開始。
-          </Context>
-        </TextBox>
-        <Avatar src={advocate_avatar} />
-      </Innerbox>
-    </Advocate_container>
+    <Section id={anchorId.advocate}>
+      <Advocate_container>
+        <Innerbox>
+          <TextBox>
+            <TitleBox>
+              <Advocate_logo src={advocate_logo} />
+              <Title>候選人主張</Title>
+            </TitleBox>
+            <SubTitle>
+              我堅信 ! 藉由推動更完善的<span className="highlight">貓咪福利</span>和相關政策，更是間接地投資於<span className="highlight">台灣的未來</span>。
+            </SubTitle>
+            <Context>
+              畢竟，民眾的身心健康與工作熱情是推動經濟的核心動力。透過完善的貓咪福利政策，為台灣的 GDP 經濟帶來巨大效益。<br />
+              因此，我期望能在立法院內推進這些政策，確保每一隻貓咪都能得到他們應有的照顧，同時也為台灣的經濟發展助一臂之力。讓我們一同護航台灣的幸福經濟，從照顧每一隻貓咪開始。
+            </Context>
+          </TextBox>
+          <Avatar src={advocate_avatar} />
+        </Innerbox>
+      </Advocate_container>
+    </Section>
   );
 };
 export default Advocate;

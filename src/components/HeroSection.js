@@ -6,6 +6,11 @@ import fbLogoPath from '../assets/fblogo.svg';
 import igLogoPath from '../assets/instalogo.svg';
 import ytLogoPath from '../assets/ytlogo.svg';
 
+import { anchorId } from '../config/anchor';
+
+const Section = styled.section`
+`;
+
 const Slogan = styled.div`
   font-family: MantouSans;
   font-feature-settings: 'clig' off, 'liga' off;
@@ -228,24 +233,26 @@ const SocialLogo = styled.img`
 
 const HeroSection = () => {
   return (
-    <Container>
-      <Slogan>台灣的明天{'\n'}喵先鋪路</Slogan>
-      <NameCard>
-        <JobTitle>2024 立委參選人</JobTitle>
-        <Name>
-          <NumLogo>3</NumLogo>
-          <div>喵立翰 Miao Li-Han</div>
-        </Name>
-      </NameCard>
-      <AvatarContainer>
-        <Avatar src={avatar_ori} />
-        <FloatingSM>
-          <SocialLogo src={fbLogoPath} />
-          <SocialLogo src={igLogoPath} />
-          <SocialLogo src={ytLogoPath} />
-        </FloatingSM>
-      </AvatarContainer>
-    </Container>
+    <Section id={anchorId.hero}>
+      <Container>
+        <Slogan>台灣的明天{'\n'}喵先鋪路</Slogan>
+        <NameCard>
+          <JobTitle>2024 立委參選人</JobTitle>
+          <Name>
+            <NumLogo>3</NumLogo>
+            <div>喵立翰 Miao Li-Han</div>
+          </Name>
+        </NameCard>
+        <AvatarContainer>
+          <Avatar src={avatar_ori} />
+          <FloatingSM>
+            <SocialLogo src={fbLogoPath} />
+            <SocialLogo src={igLogoPath} />
+            <SocialLogo src={ytLogoPath} />
+          </FloatingSM>
+        </AvatarContainer>
+      </Container>
+    </Section>
   );
 };
 export default HeroSection;

@@ -7,6 +7,7 @@ import igLogoPath from '../assets/instalogo.svg';
 import ytLogoPath from '../assets/ytlogo.svg';
 
 import { profile } from '../config/profile';
+import { anchorId } from '../config/anchor';
 
 const Outerbox = styled.div`
     position: sticky;
@@ -81,12 +82,17 @@ const Logo = styled.a`
 `;
 
 const SocialLogo = styled.img`
-    display: flex;
-    padding: 2px;
-    justify-content: center;
-    align-items: center;
-    width: 32px;
-    height: 32px;
+  display: flex;
+  padding: 2px;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  object-fit: contain;
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 const Righty = styled.div`
@@ -138,21 +144,21 @@ const NavigationBar = () => {
   return (
     <Outerbox>
       <Innerbox>
-        <Logo>
+        <Logo href={`#${anchorId.hero}`}>
           <img alt="logo" src={LogoPath} />
           <div className="logo__title">{profile.candidateName}</div>
         </Logo>
         <Middy>
-          <MidContent>候選人主張</MidContent>
-          <MidContent>最新活動</MidContent>
-          <MidContent>政策議題</MidContent>
-          <MidContent>小額捐款</MidContent>
-          <MidContent>民眾服務信箱</MidContent>
+          <MidContent><a href={`#${anchorId.advocate}`}>候選人主張</a></MidContent>
+          <MidContent><a href={`#${anchorId.latestEvents}`}>最新活動</a></MidContent>
+          <MidContent><a href={`#${anchorId.policyIssues}`}>政策議題</a></MidContent>
+          <MidContent><a href={`#${anchorId.service}`}>小額捐款</a></MidContent>
+          <MidContent><a href={`#${anchorId.service}`}>民眾服務信箱</a></MidContent>
         </Middy>
         <Righty>
-          <SocialLogo src={fbLogoPath} />
-          <SocialLogo src={igLogoPath} />
-          <SocialLogo src={ytLogoPath} />
+          <SocialLogo alt="fb" src={fbLogoPath} />
+          <SocialLogo alt="ig" src={igLogoPath} />
+          <SocialLogo alt="yt" src={ytLogoPath} />
         </Righty>
       </Innerbox>
     </Outerbox>

@@ -5,6 +5,11 @@ import Policy1Imgsrc from '../assets/Policy1.png';
 import Policy2Imgsrc from '../assets/Policy2.png';
 import Policy3Imgsrc from '../assets/Policy3.png';
 
+import { anchorId } from '../config/anchor';
+
+const Section = styled.section`
+`;
+
 const PolicyContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -124,26 +129,28 @@ const CardImg = styled.img`
 
 const Policy = () => {
   return (
-    <PolicyContainer>
-      <TitleBox>
-        <SectionLogo>POLICY ISSUES</SectionLogo>
-        <Title>政策議題</Title>
-      </TitleBox>
-      <ContentBox>
-        <CardContainer>
-          <CardTitle>為毛孩子謀福利！<br />推動寵物醫療保障方案</CardTitle>
-          <CardImg src={Policy1Imgsrc} />
-        </CardContainer>
-        <CardContainer>
-          <CardTitle>打造休閒天堂！<br />推廣寵物休閒與娛樂場所</CardTitle>
-          <CardImg src={Policy2Imgsrc} />
-        </CardContainer>
-        <CardContainer>
-          <CardTitle>推廣寵物飼養教育<br />讓愛更加專業</CardTitle>
-          <CardImg src={Policy3Imgsrc} />
-        </CardContainer>
-      </ContentBox>
-    </PolicyContainer>
+    <Section id={anchorId.policyIssues}>
+      <PolicyContainer>
+        <TitleBox>
+          <SectionLogo>POLICY ISSUES</SectionLogo>
+          <Title>政策議題</Title>
+        </TitleBox>
+        <ContentBox>
+          <CardContainer>
+            <CardTitle>為毛孩子謀福利！<br />推動寵物醫療保障方案</CardTitle>
+            <CardImg src={Policy1Imgsrc} />
+          </CardContainer>
+          <CardContainer>
+            <CardTitle>打造休閒天堂！<br />推廣寵物休閒與娛樂場所</CardTitle>
+            <CardImg src={Policy2Imgsrc} />
+          </CardContainer>
+          <CardContainer>
+            <CardTitle>推廣寵物飼養教育<br />讓愛更加專業</CardTitle>
+            <CardImg src={Policy3Imgsrc} />
+          </CardContainer>
+        </ContentBox>
+      </PolicyContainer>
+    </Section>
   );
 };
 export default Policy;

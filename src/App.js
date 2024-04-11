@@ -8,7 +8,7 @@ import Marquee from './components/Marquee';
 import Advocate from './components/Advocate';
 import LatestEvent from './components/LatestEvent';
 import Policy from './components/Policy';
-import Service from './components/Service';
+import Action from './components/Action';
 import BottomSlogan from './components/BottomSlogan';
 import Footer from './components/Footer';
 
@@ -21,7 +21,7 @@ function App () {
       <Advocate />
       <LatestEvent />
       <Policy />
-      <Service />
+      <Action />
       <BottomSlogan />
       <Footer />
       <BottomNavigationBar />
