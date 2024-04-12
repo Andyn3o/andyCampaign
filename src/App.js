@@ -6,11 +6,11 @@ import BottomNavigationBar from './components/BottomNavigationBar';
 import HeroSection from './components/HeroSection';
 import Marquee from './components/Marquee';
 import Advocate from './components/Advocate';
-import LatestEvent from './components/LatestEvent';
 import Policy from './components/Policy';
 import Action from './components/Action';
 import BottomSlogan from './components/BottomSlogan';
 import Footer from './components/Footer';
+import LatestEvents from './components/LatestEvent';
 
 function App () {
   return (
@@ -19,7 +19,7 @@ function App () {
       <HeroSection />
       <Marquee />
       <Advocate />
-      <LatestEvent />
+      <LatestEvents />
       <Policy />
       <Action />
       <BottomSlogan />

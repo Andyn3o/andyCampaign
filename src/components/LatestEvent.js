@@ -1,266 +1,289 @@
 import React from 'react';
 import styled from 'styled-components';
+import Stack from '@mui/material/Stack';
 
-import EventLogo from '../assets/event.svg';
-import MainEventImgsrc from '../assets/MainEvent.png';
-import GEvent1Imgsrc from '../assets/GEvent1.png';
-import GEvent2Imgsrc from '../assets/GEvent2.png';
-import Arrowsrc from '../assets/arrow_forward.svg';
-
+import Button from './Button';
+import ArrowForward from '../assets/icons/arrow-forward.svg';
+import SectionTitle from './SectionTitle';
 import { anchorId } from '../config/anchor';
+import Modal from './Modal';
+import facebookIcon from '../assets/icons/facebook.svg';
+import instagramIcon from '../assets/icons/instagram.svg';
+import lineIcon from '../assets/icons/line.svg';
+import twitterIcon from '../assets/icons/twitter.svg';
+import { size } from '../theme/breakpoint';
+import { events } from './latestEventData';
 
 const Section = styled.section`
-`;
-
-const EventContainer = styled.div`
+  scroll-margin-top: 20px;
+  background: #FFF;
+  padding: 104px 36px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  @media 
-  ${(props) => props.theme.device.desktop},
-  {
-    padding: 104px 36px;
+  @media ${props => props.theme.device.tablet} {
+    padding: 64px 36px;
   }
-  @media 
-  ${(props) => props.theme.device.tablet},
-  {
-    padding: 64px 32px;
-  }
-
-  @media 
-  ${(props) => props.theme.device.mobile},
-  {
+  @media ${props => props.theme.device.mobile} {
     padding: 64px 16px;
   }
 `;
 
-const TitleBox = styled.div`
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  @media
-  ${(props) => props.theme.device.tablet},
-  { 
-    gap: 3px;
-  }
-`;
-
-const SectionLogo = styled.img`
-  width: 154px;
-  height: 40px;
-`;
-
-const Title = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: MantouSans;
-  font-feature-settings: 'clig' off, 'liga' off;
-  letter-spacing: 2px;
-  font-weight: 400;
-  line-height: 105%;
-  background: -webkit-linear-gradient(left, #E5793B 1.54%, #FF4185 97.86%);
-  width: fit-content;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: center;
-  @media
-  ${(props) => props.theme.device.desktop},
-  { 
-      font-size: 64px;
-  }
-  @media
-  ${(props) => props.theme.device.tablet},
-  ${(props) => props.theme.device.mobile},
-  {
-      font-size: 52px;
-      padding: 8px 0px;
-  }
-`;
-
-
-const EventBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  max-width: 1320px;
+const CenterBox = styled.div`
+  margin-top: 64px;
+  background: #FFF;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  margin: 64px 0px 0px;
-  @media ${(props) => props.theme.device.tablet},
-  {
-    flex-direction: column;
-  }
-  
-  @media ${(props) => props.theme.device.mobile},
-  {
-    flex-direction: column;
+  max-width: 1320px;
+  width: 100%;
+  overflow: hidden;
+  @media ${props => props.theme.device.tablet},
+  ${props => props.theme.device.mobile} {
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
 
-const MainEvent = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  flex-direction: column;
-  @media ${(props) => props.theme.device.desktop},
-  {
-    max-width: 648px;
-  }
-  @media ${(props) => props.theme.device.tablet},
-  @media ${(props) => props.theme.device.mobile},
-  {
+const HeadlineCard = styled.div`
+  cursor: pointer;
+  .card__content {
+    display: flex;
+    flex-direction: column;
     gap: 8px;
   }
+  .card__title {
+    color: var(--text-primary, #334155);
+    font-size: 20px;
+  }
+  .card__description {
+    color: var(--text-primary, #334155);
+  }
 `;
 
-const GeneralEventSection = styled.div`
+const Events = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
 `;
 
-const SubGeneralEvent = styled.div`
+const EventCard = styled.div`
+  cursor: pointer;
   display: flex;
-  flex-direction: row;
   gap: 16px;
+  .card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .card__title {
+    color: var(--text-primary, #334155);
+    font-size: 16px;
+  }
+  .card__description {
+    color: var(--text-primary, #334155);
+  }
+  .overflow-ellipsis {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
 `;
 
-const MainEventImg = styled.img`
+const IconButton = styled.img`
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+  &:active {
+    transform: scale(0.95);
+    transition: all 0.2s ease-in-out;
+  }
+`;
+
+const Grid = styled.div`
+  color: var(--text-primary, #334155);
+  display: grid;
+  grid-template-columns: 507px 1fr;
+  gap: 32px;
+  @media ${props => props.theme.device.tablet},
+  ${props => props.theme.device.mobile} {
+    grid-template-columns: repeat(1, 1fr);
+  }
+`;
+
+const EventTitle = styled.div`
+  color: var(--primary-color, #DA7D4A);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 150%;
+  @media ${props => props.theme.device.tablet} {
+    font-size: 20px;
+  }
+`;
+
+const EventDescription = styled.div`
+  padding-top: 32px;
+  padding-bottom: 96px;
+`;
+
+const MoreEventBlock = styled.div`
+  padding: var(--spacer-16, 16px);
+  background: var(--slate-50, #F8FAFC);
+  border-radius: var(--spacer-12, 12px);
+  .more-event__title {
+    font-weight: 600;
+  }
+`;
+
+const MoreEvents = styled.div`
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  @media ${props => props.theme.device.mobile} {
+    grid-template-columns: repeat(auto-fill, minmax(147px, 1fr));
+  }
+`;
+
+const HeadlineImg = styled.img`
   object-fit: cover;
   width: 100%;
   border-radius: 16px;
-  max-height: 413px;
 `;
 
-const MainEventDescription = styled.div`
-  font-family: Inter;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-`;
-
-const GeneralEventDescription = styled.div`
-  font-family: Inter;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-`;
-
-const DateStyle = styled.div`
-  font-size: 14px;
-  color: #94a3b8;
-`;
-
-const TitleStyle = styled.div`
-  color: var(--text-primary, #334155);
-  font-size: ${props => props.fontSize || '20px'};
-  font-weight: 700;
-}
-`;
-
-const ContextStyle = styled.div`
-  color: var(--text-primary, #334155);
-  font-size: 16px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-`;
-
-
-
-const GeneralEventImg = styled.img`
+const Img = styled.img`
   object-fit: cover;
+  border-radius: 8px;
   width: 200px;
-  height: 134px;
-  min-width: 200px;
-  min-height: 134px;
-  border-radius: 16px;
+  @media ${props => props.theme.device.tablet},
+  ${props => props.theme.device.mobile} {
+    width: 200px;
+  }
 `;
 
-const ButtonClass = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border-radius: 500px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  background: var(--gray-100, #F1F5F9);
-  padding: var(--spacer-16, 16px) var(--spacer-24, 24px);
-  cursor: pointer;
-  flex-shrink: 0;
-  height: fit-content;
-  width: fit-content;
-  max-height: 66px;
-  max-width: 154px;
+const CardDate = styled.div`
+  font-size: 14px;
+  color: var(--slate-400);
 `;
 
-const ButtonText = styled.h1`
-  font-size: 16px;
-  line-height: normal;
-  font-weight: 700;
-  color: var(--text-primary);
-`;
-
-const ArrowImg = styled.img`
-  height: 22px;
-  width: 22px;
-`;
-
-const LatestEvent = () => {
+const LatestEvents = () => {
+  const [selectedEventId, setSelectedEventId] = React.useState(null);
+  const pinnedEvent = events.find(event => event.pin) || events[0];
+  const unpinnedEvent = events.filter(event => !event.pin);
+  const unselectedEvents = events.filter(event => event.id !== selectedEventId);
+  const selectedEvent = events.find(event => event.id === selectedEventId) || {
+    imgSrc: {
+      default: '',
+      desktop: '',
+      tablet: '',
+      mobile: '',
+    },
+    title: '',
+    description: '',
+    date: '',
+  };  
   return (
-    <Section id={anchorId.latestEvents}>
-      <EventContainer>
-        <TitleBox>
-          <SectionLogo src={EventLogo} />
-          <Title>最新活動</Title>
-        </TitleBox>
-        <EventBox>
-          <MainEvent>
-            <MainEventImg src={MainEventImgsrc} />
-            <MainEventDescription>
-              <DateStyle>2023/12/26</DateStyle>
-              <TitleStyle>參與台北寵物論壇，爭取貓咪友善環境</TitleStyle>
-              <ContextStyle>炎炎夏日的周六，我走進了台北寵物論壇，帶著一副貓耳髮箍，決定要全力宣傳「貓咪至上」的理念！我相信，我們的都市中，每一隻貓咪都應該有自己的 VIP 休憩空間。</ContextStyle>
-            </MainEventDescription>
-          </MainEvent>
-          <GeneralEventSection>
-            <SubGeneralEvent>
-              <GeneralEventImg src={GEvent1Imgsrc} />
-              <GeneralEventDescription>
-                <DateStyle>2023/12/24</DateStyle>
-                <TitleStyle fontSize='16px'>掃街模式開啟！帶著你的貓耳，來和我一起走！</TitleStyle>
-                <ContextStyle>街上氣氛真的很棒，從小孩到大人，甚至有些狗狗朋友都帶著貓耳來找我握手，真的太可愛了！</ContextStyle>
-              </GeneralEventDescription>
-            </SubGeneralEvent>
-            <SubGeneralEvent>
-              <GeneralEventImg src={GEvent2Imgsrc} />
-              <GeneralEventDescription>
-                <DateStyle>2023/12/20</DateStyle>
-                <TitleStyle fontSize='16px'>收容所模特兒大比拼！</TitleStyle>
-                <ContextStyle>今天的收容所不再是一片寂靜。為了讓更多人認識到這裡的毛孩子，我們舉辦了一場前所未有的「模特兒走秀」！</ContextStyle>
-              </GeneralEventDescription>
-            </SubGeneralEvent>
-
-            <SubGeneralEvent>
-              <GeneralEventImg src={MainEventImgsrc} />
-              <GeneralEventDescription>
-                <DateStyle>023/12/26</DateStyle>
-                <TitleStyle fontSize='16px'>參與台北寵物論壇，爭取貓咪友善環境</TitleStyle>
-                <ContextStyle>街上氣氛真的很棒，從小孩到大人，甚至有些狗狗朋友都帶著貓耳來找我握手，真的太可愛了！</ContextStyle>
-              </GeneralEventDescription>
-            </SubGeneralEvent>
-            <ButtonClass>
-              <ButtonText>查看更多</ButtonText>
-              <ArrowImg src={Arrowsrc} />
-            </ButtonClass>
-          </GeneralEventSection>
-        </EventBox>
-      </EventContainer>
-    </Section>
+    <>
+      <Section id={anchorId.latestEvents}>
+        <SectionTitle
+          tag="LATEST EVENTS"
+          title="最新活動"
+        />
+        <CenterBox>
+          <HeadlineCard onClick={() => setSelectedEventId(pinnedEvent.id)}>
+            <picture>
+              <source srcSet={pinnedEvent.imgSrc.desktop} media={`(min-width:${size.desktop}px)`} />
+              <source srcSet={pinnedEvent.imgSrc.tablet} media={`(min-width:${size.tablet}px)`} />
+              <source srcSet={pinnedEvent.imgSrc.mobile} media={`(min-width:${size.mobile}px)`} />
+              <HeadlineImg src={pinnedEvent.imgSrc.default} alt={pinnedEvent.title} width="100%" style={{ objectFit: 'cover' }} />
+            </picture>
+            <div className="card__content">
+              <CardDate className="card__date">{pinnedEvent.date}</CardDate>
+              <h5 className="card__title">{pinnedEvent.title}</h5>
+              <div className="card__description">{pinnedEvent.description}</div>
+            </div>
+          </HeadlineCard>
+          <Events>
+            {[...unpinnedEvent, pinnedEvent].map((event) => {
+              return (
+                <EventCard key={event.id} onClick={() => setSelectedEventId(event.id)}>
+                  <>
+                    <Img src={event.imgSrc.mobile} alt={event.title} />
+                    <div className="card__content">
+                      <CardDate className="card__date">{event.date}</CardDate>
+                      <h5 className="card__title">{event.title}</h5>
+                      <div className="card__description overflow-ellipsis">{event.description}</div>
+                    </div>
+                  </>
+                </EventCard>
+              );
+            })}
+            <div>
+              <Button
+                endIcon={<img src={ArrowForward} />}
+              >
+                <h6>查看更多</h6>
+              </Button>
+            </div>
+          </Events>
+        </CenterBox>
+      </Section>
+      <Modal
+        title="最新活動"
+        content={(
+          <Grid>
+            <Stack spacing="8px">
+              <picture>
+                <source srcSet={selectedEvent.imgSrc.desktop} media={`(min-width:${size.desktop}px)`} />
+                <source srcSet={selectedEvent.imgSrc.tablet} media={`(min-width:${size.tablet}px)`} />
+                <source srcSet={selectedEvent.imgSrc.mobile} media={`(min-width:${size.mobile}px)`} />
+                <img src={selectedEvent.imgSrc.default} alt={selectedEvent.title} width="100%" style={{ objectFit: 'cover' }} />
+              </picture>
+              <div>{selectedEvent.title}</div>
+              <Stack direction="row" alignItems="center" spacing="16px">
+                <div>分享</div>
+                <IconButton alt="facebook" className="icon-facebook" src={facebookIcon} />
+                <IconButton alt="instagram" className="icon-instagram" src={instagramIcon} />
+                <IconButton alt="line" className="icon-line" src={lineIcon} />
+                <IconButton alt="twitter" className="icon-twitter" src={twitterIcon} />
+              </Stack>
+            </Stack>
+            <div>
+              <Stack spacing="8px">
+                <EventTitle>{selectedEvent.title}</EventTitle>
+                <CardDate>{selectedEvent.date}</CardDate>
+                <EventDescription>
+                  {selectedEvent.description}
+                </EventDescription>
+                <MoreEventBlock>
+                  <Stack spacing="16px">
+                    <div className="more-event__title">更多活動</div>
+                    <MoreEvents>
+                      {unselectedEvents.map(event => (
+                        <div
+                          key={event.id}
+                          style={{ cursor: 'pointer' }}
+                          onClick={() => {
+                            setSelectedEventId(event.id);
+                            document.querySelector('.modal__content')?.scrollTo(0, 0);
+                          }}
+                        >
+                          <img src={event.imgSrc.mobile} width="100%" />
+                          <div>{event.title}</div>
+                        </div>
+                      ))}
+                    </MoreEvents>
+                  </Stack>
+                </MoreEventBlock>
+              </Stack>
+            </div>
+          </Grid>
+        )}
+        open={selectedEventId !== null}
+        onClose={() => setSelectedEventId(null)}
+      />
+    </>
   );
 };
-export default LatestEvent;
+
+export default LatestEvents;
