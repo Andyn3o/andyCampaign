@@ -1,0 +1,42 @@
+import React from 'react';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  cursor: pointer;
+  background: #FFF;
+  border-radius: var(--spacer-32, 32px);
+  img {
+    border-radius: var(--spacer-24, 24px);
+    object-fit: cover;
+    width: 100%;
+  }
+  .card__content {
+    padding: 0px 16px 16px;
+  }
+  .card-content__title {
+    white-space: pre-line;
+  }
+  @media ${props => props.theme.device.tablet},
+  ${props => props.theme.device.mobile}{
+    padding: 16px;
+    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+`;
+
+const Card = (props) => {
+  // eslint-disable-next-line react/prop-types
+  const { imgSrc, title, tag, tagColor, onClick, ...otherProps } = props;
+  return (
+    <Container className="card" onClick={onClick} {...otherProps}>
+      <div className="card__content">
+        <div style={{ display: 'none', background: tagColor }}>{tag}</div>
+        <h4 className="card-content__title">{title}</h4>
+      </div>
+      <img src={imgSrc} alt={title} />
+    </Container>
+  );
+};
+
+export default Card;

@@ -6,7 +6,7 @@ import BottomNavigationBar from './components/BottomNavigationBar';
 import HeroSection from './components/HeroSection';
 import Marquee from './components/Marquee';
 import Advocate from './components/Advocate';
-import Policy from './components/Policy';
+import Policy from './components/PolicyIssue/Policy';
 import Action from './components/Action';
 import BottomSlogan from './components/BottomSlogan';
 import Footer from './components/Footer';
