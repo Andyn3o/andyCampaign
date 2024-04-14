@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/andyCampaign/static/css/main.1052527a.css",
-    "main.js": "/andyCampaign/static/js/main.854b66ae.js",
+    "main.js": "/andyCampaign/static/js/main.d3ec743a.js",
     "static/js/787.d2a1314e.chunk.js": "/andyCampaign/static/js/787.d2a1314e.chunk.js",
     "static/media/MantouSans-Regular.ttf": "/andyCampaign/static/media/MantouSans-Regular.7d5a628aa53cd85a4679.ttf",
     "static/media/advocatephoto.svg": "/andyCampaign/static/media/advocatephoto.086b4297de8524b6e68f030b13a298aa.svg",
@@ -42,11 +42,11 @@
     "static/media/fblogo.svg": "/andyCampaign/static/media/fblogo.e5cf5f8df84f0c0beb53d821500a8410.svg",
     "static/media/arrow-forward.svg": "/andyCampaign/static/media/arrow-forward.e705fdd82b62df7cb48c8de3b1028b57.svg",
     "main.1052527a.css.map": "/andyCampaign/static/css/main.1052527a.css.map",
-    "main.854b66ae.js.map": "/andyCampaign/static/js/main.854b66ae.js.map",
+    "main.d3ec743a.js.map": "/andyCampaign/static/js/main.d3ec743a.js.map",
     "787.d2a1314e.chunk.js.map": "/andyCampaign/static/js/787.d2a1314e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1052527a.css",
-    "static/js/main.854b66ae.js"
+    "static/js/main.d3ec743a.js"
   ]
 }
