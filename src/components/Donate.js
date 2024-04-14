@@ -10,6 +10,8 @@ import Input from '../components/Input';
 import SuccessTab from '../components/Success';
 import DonateSrc from '../assets/images/donate.png';
 import ArrowForward from '../assets/icons/arrow-forward.svg';
+
+import { anchorId } from '../config/anchor';
 import { donatePlans } from '../components/data';
 import { CommonBox, CommonColorBlock, ActionTitle, Grid, SubmitButton } from '../components/styled';
 
@@ -154,7 +156,7 @@ const Donate = () => {
 
   return (
     <>
-      <DonateBox>
+      <DonateBox id={anchorId.donate}>
         <div>
           <div className="action__title">小額支持喵喵</div>
           <div className="action__description">您的小筆捐款，是每隻毛孩未來的大大動力！</div>

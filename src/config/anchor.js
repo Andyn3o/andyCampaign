@@ -3,5 +3,6 @@ export const anchorId = {
   advocate: 'advocate',
   latestEvents: 'latestEvents',
   policyIssues: 'policyIssues',
-  service: 'service'
+  service: 'service',
+  donate: 'donate'
 };

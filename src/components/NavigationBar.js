@@ -69,7 +69,9 @@ const Logo = styled.a`
   &:hover {
     opacity: 0.8;
   }
-  @media ${props => props.theme.device.tablet} {
+  @media ${props => props.theme.device.tablet}, 
+  ${props => props.theme.device.mobile},
+  {
     gap: 4px;
     img {
       width: 34px;
